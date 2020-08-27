@@ -1,0 +1,91 @@
+.TodoItem {
+    @mixin trans {
+        transition: .3s ease;
+    }
+    $color: rgba(#000000,0.3);
+
+    display: flex;
+    padding: 20px 15px;
+    align-items: center;
+    font-size: 21px;
+    border-bottom: 1px solid rgba(#000000,0.3);
+    &.first {
+        border-top: 1px solid rgba(#000000,0.3);
+    }
+
+    &.complited {
+        .TodoItem {
+            &_completeBox {
+                background-color: #ffcccc;
+            }
+            &_text {
+                text-decoration: line-through;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    &_completeBox {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 2px solid $color;
+        margin-right: 15px;
+        flex-shrink: 0;
+        @include trans();
+
+        & img {
+            width: 65%;
+            height: 65%;
+            opacity: 0.3;
+            animation: completeBoxAnim .3s;
+            animation-fill-mode: backwards;
+        }
+    }
+
+    &_text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+        color: $color;
+        @include trans();
+    }
+
+    &_close {
+        height: 25px;
+        width: 25px;
+        opacity: 0.25;
+        flex-shrink: 0;
+        @include trans();
+        & img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+
+    &:hover &_completeBox {
+        border: 2px solid rgba(#000000, .55);
+        cursor: pointer;
+    }
+    &:hover &_close {
+        opacity: .35;
+        cursor: pointer;
+    }
+    &:hover &_text {
+        color: rgba(#000000,0.75);
+    }
+
+    @keyframes completeBoxAnim {
+        0% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+

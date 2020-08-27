@@ -1,0 +1,8 @@
+export const CREATE_TODO = 'CREATE_TODO';
+export const TOGGLE_TODO_COMPLITE = 'TOGGLE_TODO_COMPLITE';
+export const DELETE_TODO = 'DELETE_TODO';
+export const TOGGLE_TODO_SHOW = 'TOGGLE_TODO_SHOW';
+
+export const DELETE_COMPLETED = 'DELETE_COMPLETED';
+
+export const FILTER_TODO = 'FILTER_TODO';
