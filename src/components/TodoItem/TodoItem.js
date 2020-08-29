@@ -3,8 +3,16 @@ import classes from "./TodoItem.module.scss";
 import closeImg from "./close.svg";
 import checkImg from "./check.svg"
 
-export default function TodoItem({ index, id, text, complited, actions }) {
+import { withTheme } from 'styled-components'
+
+function TodoItem({ index, id, text, complited, actions, theme }) {
+    const { themeName } = theme;
     const itemClasses = [classes.TodoItem];
+
+    if (themeName === 'dark') {
+        itemClasses.push(classes.dark)
+    }
+     
 
     if (complited) {
         itemClasses.push(classes.complited);
@@ -40,3 +48,5 @@ export default function TodoItem({ index, id, text, complited, actions }) {
         </div>
     );
 }
+
+export default withTheme(TodoItem);

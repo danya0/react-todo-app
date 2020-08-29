@@ -2,15 +2,22 @@
     @mixin trans {
         transition: .3s ease;
     }
-    $color: rgba(#000000,0.3);
+    color: rgba(#000000,0.3);
+    border-color: rgba(#000000,0.3);
 
     display: flex;
     padding: 20px 15px;
     align-items: center;
     font-size: 21px;
-    border-bottom: 1px solid rgba(#000000,0.3);
+    border-bottom: 1px solid;
+    &.dark {
+        color: #fff;
+        border-color: #fff;
+    }
+
     &.first {
-        border-top: 1px solid rgba(#000000,0.3);
+        border-top: 1px solid;
+        border-color: inherit;
     }
 
     &.complited {
@@ -32,7 +39,8 @@
         width: 25px;
         height: 25px;
         border-radius: 50%;
-        border: 2px solid $color;
+        border: 2px solid;
+        border-color: inherit;
         margin-right: 15px;
         flex-shrink: 0;
         @include trans();
@@ -50,7 +58,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         flex-grow: 1;
-        color: $color;
+        color: inherit;
         @include trans();
     }
 
@@ -59,6 +67,7 @@
         width: 25px;
         opacity: 0.25;
         flex-shrink: 0;
+        fill: red;
         @include trans();
         & img {
             height: 100%;
@@ -68,7 +77,8 @@
 
 
     &:hover &_completeBox {
-        border: 2px solid rgba(#000000, .55);
+        border: 2px solid;
+        border-color: inherit;
         cursor: pointer;
     }
     &:hover &_close {
@@ -76,7 +86,7 @@
         cursor: pointer;
     }
     &:hover &_text {
-        color: rgba(#000000,0.75);
+        color: inherit;
     }
 
     @keyframes completeBoxAnim {

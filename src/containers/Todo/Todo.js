@@ -32,7 +32,7 @@ const ItemWrap = styled.div`
 
 const TitleNoObjects = styled.div`
     padding: 15px 0;
-    color: rgba(0,0,0, .25);
+    color: inherit;
     font-size: 22px;
     text-align: center;
 `;
@@ -47,7 +47,7 @@ function Todo({
     toggleShowTodo,
     deleteComplited,
     filterTodo,
-    filter
+    filter,
 }) {
     const ItemActions = { toggleTodoComplite, deleteTodo };
     const ToolActions = { deleteComplited, filterTodo };
@@ -71,7 +71,7 @@ function Todo({
     const renderTodoItems = () => {
         return (
             <ItemWrap>
-                {todosOrder.map((todoId, index, arr) => {
+                {todosOrder.map((todoId, index) => {
                     const currentItem = todos[todoId];
                     return (
                         <TodoItem

@@ -1,7 +1,18 @@
 import React from 'react';
 import classes from './TodoTool.module.scss'
 
-export default function TodoTool({total, totalNoCompleted, actions}) {
+import { withTheme } from 'styled-components'
+
+function TodoTool({total, totalNoCompleted, actions, theme}) {
+    const {themeName} = theme;
+    const TodoListClasses = [
+        classes.TodoTool,
+    ]
+
+    if (themeName === 'dark') {
+        TodoListClasses.push(classes.dark)
+    }
+
     const buttonClasses = [
         classes.TodoTool_deleteCompleted
     ]
@@ -10,7 +21,7 @@ export default function TodoTool({total, totalNoCompleted, actions}) {
     }
 
     return (
-        <div className={classes.TodoTool}>
+        <div className={TodoListClasses.join(' ')}>
             <div>
                 {total === 0 ? (
                     'Нет задач'
@@ -36,3 +47,5 @@ export default function TodoTool({total, totalNoCompleted, actions}) {
         </div>
     )
 }
+
+export default withTheme(TodoTool)

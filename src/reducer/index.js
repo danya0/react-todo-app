@@ -1,6 +1,7 @@
 import * as types from '../constants'
 
 const initialState = {
+    theme: 'light',
     showTodos: true,
     newId: 1,
     todos: {},

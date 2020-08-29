@@ -7,4 +7,9 @@
     flex-direction: column;
     box-shadow: 0 0 50px 0px rgba(#000000, .12);
     border-radius: 5px;
+
+    &.dark {
+        background: #333336;
+        color: #fff !important
+    }
 }

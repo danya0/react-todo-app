@@ -6,10 +6,11 @@
         font-size: 23px;
         flex-grow: 1;
         outline: none;
-        color: rgba(#000, .2);
+        background: inherit;
+        color: inherit;
         &::placeholder {
             font-style: italic;
-            color: rgba(#000, .2)
+            color: inherit
         }
     }
 

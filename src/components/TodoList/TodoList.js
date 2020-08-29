@@ -1,11 +1,22 @@
 import React from 'react';
 import classes from './TodoList.module.scss';
+import { withTheme } from 'styled-components'
 
+function TodoList({children, theme}) {
+    const { themeName } = theme;
 
-export default function TodoList({children}) {
+    const TodoListClasses = [
+        classes.TodoList,
+    ]
+
+    if (themeName === 'dark') {
+        TodoListClasses.push(classes.dark)
+    }
     return (
-        <div className={classes.TodoList}>
+        <div className={TodoListClasses.join(' ')}>
             {children}
         </div>
     )
 }
+
+export default withTheme(TodoList)
